@@ -47,6 +47,8 @@ build/
 tmp/
 temp/
 *.log
+result.csv
+**/result.csv
 
 # Local data exports
 *.xlsx

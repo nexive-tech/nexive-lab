@@ -1,0 +1,22 @@
+{
+  "sheet_name": "Invoice",
+  "required_cells": {
+    "B2": "請求書番号",
+    "B3": "請求日",
+    "B5": "請求先名"
+  },
+  "detail": {
+    "start_row": 8,
+    "end_row": 17,
+    "item_col": "B",
+    "quantity_col": "D",
+    "unit_price_col": "E",
+    "amount_col": "F"
+  },
+  "totals": {
+    "subtotal_cell": "F18",
+    "tax_cell": "F19",
+    "total_cell": "F20",
+    "tax_rate": 0.1
+  }
+}
