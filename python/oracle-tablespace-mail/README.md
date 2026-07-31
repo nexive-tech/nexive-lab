@@ -2,7 +2,7 @@
 
 Oracle の表領域使用率を SQL で取得し、毎朝の確認メールとして送るための Python サンプルです。
 
-実運用では Windows タスクスケジューラや cron から `monitor_tablespaces.py` を実行します。Oracle に接続できない環境でもメール本文を確認できるよう、サンプルデータで動く `--sample --dry-run` を用意しています。
+実運用では Windows タスクスケジューラ、Linux の cron、systemd timer から `monitor_tablespaces.py` を実行します。Oracle に接続できない環境でもメール本文を確認できるよう、サンプルデータで動く `--sample --dry-run` を用意しています。
 
 ## できること
 
@@ -70,6 +70,50 @@ C:\path\to\nexive-lab\python\oracle-tablespace-mail\monitor_tablespaces.py
 
 ```markdown
 C:\path\to\nexive-lab\python\oracle-tablespace-mail
+```
+
+## Linux cron 例
+
+毎朝 8:00 に実行する例です。
+
+```cron
+0 8 * * * cd /opt/nexive-lab/python/oracle-tablespace-mail && /opt/nexive-lab/python/oracle-tablespace-mail/.venv/bin/python monitor_tablespaces.py
+```
+
+## Linux systemd timer 例
+
+`/etc/systemd/system/oracle-tablespace-mail.service`:
+
+```ini
+[Unit]
+Description=Oracle tablespace mail monitor
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/nexive-lab/python/oracle-tablespace-mail
+ExecStart=/opt/nexive-lab/python/oracle-tablespace-mail/.venv/bin/python monitor_tablespaces.py
+```
+
+`/etc/systemd/system/oracle-tablespace-mail.timer`:
+
+```ini
+[Unit]
+Description=Run Oracle tablespace mail monitor every morning
+
+[Timer]
+OnCalendar=*-*-* 08:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+有効化:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now oracle-tablespace-mail.timer
+systemctl list-timers oracle-tablespace-mail.timer
 ```
 
 ## 注意
