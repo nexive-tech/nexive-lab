@@ -1,0 +1,14 @@
+{
+  "name": "openship-staging-health",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal health-check app for testing OpenShip staging deployments.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {}
+}

@@ -7,6 +7,7 @@
 ## Structure
 
 - `python/`: Pythonによる業務データ確認、自動化、Excel/CSV処理
+- `node/`: Node.jsによる検証用Webアプリ、デプロイ確認サンプル
 - `sql/`: SQL例、検証用データ、実行計画確認メモ
 - `laravel/`: Laravel / PHP の業務システム実装サンプル
 - `csv/`: 記事で使うCSVサンプル、文字コード確認用データ
