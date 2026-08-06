@@ -17,3 +17,7 @@
 - 本番データ、顧客データ、秘密情報は置かない。
 - サンプルは小さくし、記事から見ても目的が分かる単位で分ける。
 - 実行方法、入力例、確認結果は各サンプルの `README.md` に書く。
+
+## Samples
+
+- `python/openpyxl-excel-report-check`: Excel帳票の空欄と金額ズレを openpyxl で確認するサンプル

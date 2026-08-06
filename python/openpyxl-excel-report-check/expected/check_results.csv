@@ -1,0 +1,5 @@
+issue_type,cell,item,value,message
+blank,B4,取引先名,,取引先名 が空欄です
+blank,C12,明細3の作業内容,,明細3の作業内容 が空欄です
+blank,F13,明細4の金額,,明細4の金額 が空欄です
+total_mismatch,B6,請求金額,120000,請求金額 120000 と明細合計 115000 が一致しません
